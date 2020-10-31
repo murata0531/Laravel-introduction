@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\SampleNotification;
 use Illuminate\Http\Request;
 use App\Events\ChatMessageRecieved;
-use App\Message;
+use App\Models\Message;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
  
@@ -20,7 +20,7 @@ class ChatController extends Controller
     public function index(Request $request , $recieve)
     {
         // チャットの画面
-        $loginId = Auth::id();
+        $loginId = \Auth::id();
  
         $param = [
           'send' => $loginId,
@@ -28,7 +28,7 @@ class ChatController extends Controller
         ];
  
         // 送信 / 受信のメッセージを取得する
-        $query = Message::where('send' , $loginId)->where('recieve' , $recieve);;
+        $query = \Message::where('send' , $loginId)->where('recieve' , $recieve);;
         $query->orWhere(function($query) use($loginId , $recieve){
             $query->where('send' , $recieve);
             $query->where('recieve' , $loginId);
@@ -56,7 +56,7 @@ class ChatController extends Controller
  
         // メッセージデータ保存
         try{
-            Message::insert($insertParam);
+            \Message::insert($insertParam);
         }catch (\Exception $e){
             return false;
  
