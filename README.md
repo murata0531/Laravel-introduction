@@ -18,7 +18,7 @@ composerバージョンが表示されるか確認する
 
 composer --version
 
-composer経由でlatavelをインストールできるようにする
+composer経由でlaravelをインストールできるようにする
 
 composer require laravel/installer
 
