@@ -1,1 +1,1 @@
-リアルタイムチャット練習用
+Laravel development
