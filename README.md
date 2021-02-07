@@ -50,9 +50,9 @@ git clooneでプロジェクトを取得する
 
 cp .env.example .env
 
-php artisan key:generate
-
 composer install
+
+php artisan key:generate
 
 まで行う
 
